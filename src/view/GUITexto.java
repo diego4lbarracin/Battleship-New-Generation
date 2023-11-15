@@ -16,36 +16,48 @@ public class GUITexto {
                     "                                         |_|    \n";
 
     public void interfazDeJuego(){
-        int opcion = 0;
         Scanner sc = new Scanner(System.in);
-        System.out.println(battleshipLogo);
-        do {
-            System.out.println("Menu Principal.");
-            System.out.println("(1) Iniciar Partida.");
-            System.out.println("(2) Salir.");
-            System.out.println("Seleccione una opcion -> ");
-            opcion = sc.nextInt();
-            sc.nextLine();
-            switch (opcion){
-                case 1 -> {
-                    String alias, contrasena;
-                    System.out.println("Ingrese el nombre de usuario -> ");
-                    alias = sc.nextLine();
-                    System.out.println("Ingrese la contrasena -> ");
-                    contrasena = sc.nextLine();
-                    Administrador administradorPartida = new Administrador(alias,contrasena);
-                    System.out.println("El administrador ha iniciado sesion correctamente.");
-                    administradorPartida.iniciarComptencia();
-                    administradorPartida.getCompetencia().secuenciaDeTurnosDeJuego();
-                    administradorPartida.getCompetencia().ReporteCompetencia();
+        System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+        String alias, contrasena;
+        System.out.println("INICIO DE SESION");
+        System.out.print("Usuario -> ");
+        alias = sc.nextLine();
+        System.out.print("Contrasena -> ");
+        contrasena = sc.nextLine();
+        Administrador administradorPartida = new Administrador(alias,contrasena);
+        if (administradorPartida.getInicioCorrecto()){
+            System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+            System.out.println("El administrador ha iniciado sesion correctamente.");
+            System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+            int opcion = 0;
+
+            System.out.println(battleshipLogo);
+            do {
+                System.out.println("Menu Principal.");
+                System.out.println("(1) Iniciar Partida.");
+                System.out.println("(2) Salir.");
+                System.out.print("Seleccione una opcion -> ");
+                opcion = sc.nextInt();
+                sc.nextLine();
+                switch (opcion){
+                    case 1 -> {
+
+                        administradorPartida.iniciarComptencia();
+                        System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+                        administradorPartida.getCompetencia().secuenciaDeTurnosDeJuego();
+                        System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+                        administradorPartida.getCompetencia().ReporteCompetencia();
+                        System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+                    }
+                    case 2 -> {
+                        System.out.println("Ha salido del juego.");
+                    }
+                    default -> {
+                        System.out.println("Seleccione una opcion correcta.");
+                    }
                 }
-                case 2 -> {
-                    System.out.println("Ha salido del juego.");
-                }
-                default -> {
-                    System.out.println("Seleccione una opcion correcta.");
-                }
-            }
-        }while (opcion!=2);
-    }
+            }while (opcion!=2);
+        }
+        }
+
 }

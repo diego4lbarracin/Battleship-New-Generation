@@ -8,7 +8,7 @@ public class Tablero {
         /*Initializing the 2D array of type "char" with empty spaces.*/
         for (int i=0; i<10; i++){
             for (int j=0; j<10; j++){
-                tablero[i][j]= "  ";
+                tablero[i][j]= "_";
             }
         }
     }
@@ -32,71 +32,112 @@ public class Tablero {
                 case 0 -> {
                     System.out.print("| 1 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 1 -> {
                     System.out.print("| 2 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 2 -> {
                     System.out.print("| 3 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 3 -> {
                     System.out.print("| 4 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 4 -> {
                     System.out.print("| 5 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 5 -> {
                     System.out.print("| 6 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 6 -> {
                     System.out.print("| 7 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 7 -> {
                     System.out.print("| 8 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 8 -> {
                     System.out.print("| 9 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else{
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }
                 case 9 -> {
                     System.out.print("|10 |");
                     for (int j = 0; j < 10; j++) {
-                        System.out.print(tablero[i][j] + " |");
-
+                        if(tablero[i][j].equals("_")){
+                            System.out.print(" "+" " + " |");
+                        }else if (tablero[i][j].equals("10")){
+                            System.out.print(tablero[i][j] + " |");
+                        }else {
+                            System.out.print(" "+tablero[i][j] + " |");
+                        }
                     }
                     System.out.println();
                 }

@@ -67,39 +67,62 @@ public class Jugador extends Usuario{
     public void ubicarBarcosJugador(){
         System.out.println("SECUENCIA DE UBICACION DE BARCOS");
         System.out.println("Ingrese la coordenada de la siguiente manera -> \"E6\".");
+        System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
         String coordenada1;
         String coordenada2;
         Scanner sc= new Scanner(System.in);
         for (Barco i:
              this.barcosJugador) {
-            System.out.println("Tipo de Barco: "+ i.getTipoBarco()+", "+"Tamano Barco: "+i.getTamanoBarco());
+            System.out.println("Tipo de Barco -> "+ i.getTipoBarco()+", "+"Tamano Barco -> "+i.getTamanoBarco());
+            System.out.println("ID Tipo Barco -> "+i.getIdTipoBarco());
             boolean registroBarcoExitoso = true;
             do {
                 int xInicial, yInicial;
                 int xFinal, yFinal;
+                Boolean correcta = false;
                 do {
-                    System.out.println("Ingrese la coordenada inicial -> ");
+                    System.out.print("Ingrese la coordenada inicial -> ");
                     coordenada1 = sc.nextLine();
-                    System.out.println("Ingrese la coordenada final -> ");
+                    System.out.print("Ingrese la coordenada final -> ");
                     coordenada2 = sc.nextLine();
                     xInicial = obtenerColumna(coordenada1.substring(0, 1));
                     yInicial = obtenerFila(coordenada1.substring(1));
 
                     xFinal = obtenerColumna(coordenada2.substring(0, 1));
                     yFinal = obtenerFila(coordenada2.substring(1));
-                } while (!calculoDistanciaTamanoBarco(xInicial, xFinal, yInicial, yFinal, i.getTamanoBarco()));
-                String idBarco = " "+ i.getIdTipoBarco();
+
+                    /*Para ver si funciona*/
+//                    System.out.println("xInicial: "+ xInicial);
+//                    System.out.println("yInicial: "+ yInicial);
+//                    System.out.println("xFinal: "+ xFinal);
+//                    System.out.println("yFinal: "+ yFinal);
+                    correcta = calculoDistanciaTamanoBarco(xInicial, xFinal, yInicial, yFinal, i.getTamanoBarco());
+                    if(!correcta){
+                        System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+                        System.out.println("Coordenada Invalida.");
+                        System.out.println("Ingrese una coordenada nuevamente.");
+                        System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+                    }
+                } while (!correcta);
+//                String idBarco = Integer.toString(i.getIdTipoBarco());
+//                System.out.println("idBarco: "+idBarco);
+//                tableroOrigen.imprimirTablero();
                 for (int j = yInicial; j <= yFinal; j++) {
                     for (int k = xInicial; k <= xFinal; k++) {
-                        if (!Objects.equals(tableroOrigen.tablero[j][k], "  ")) {
-                            tableroOrigen.tablero[j][k] = idBarco;
-                        }else{
-                            System.out.println("No se puede insertar este barco en estas posiciones.");
-                            System.out.println("Siga las instrucciones e inserte su barco nuevamente.");
-                            registroBarcoExitoso = false;
-                        }
+                       if (tableroOrigen.tablero[j][k].equals("_") ) {
+                           tableroOrigen.tablero[j][k] = Integer.toString(i.getIdTipoBarco());
+                       }else{
+                           System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+                           System.out.println("No se puede insertar este barco en estas posiciones.");
+                           System.out.println("Siga las instrucciones e inserte su barco nuevamente.");
+                           System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+
+                           registroBarcoExitoso = false;
+                       }
                     }
                 }
+                tableroOrigen.imprimirTablero();
+
             }while (!registroBarcoExitoso);
 
         }
@@ -108,14 +131,14 @@ public class Jugador extends Usuario{
         barcosJugador.removeIf( b -> b.getIdTipoBarco()==idTipoBarco);
     }
     public void atacarComputadora(String coordenadaDeAtaque, String mensaje){
-        int x= Integer.parseInt(coordenadaDeAtaque.substring(0, 1));
-        int y= Integer.parseInt(coordenadaDeAtaque.substring(1));
+        int x= Jugador.mapaLetraColumna.get(coordenadaDeAtaque.substring(0, 1));
+        int y= Integer.parseInt(coordenadaDeAtaque.substring(1))-1;
         switch (mensaje){
             case "IMPACTADO", "HUNDIDO" -> {
-                tableroObjetivo.tablero[y][x] = " /";
+                tableroObjetivo.tablero[y][x] = "/";
             }
             case "AL AGUA" -> {
-                tableroObjetivo.tablero[y][x] = " X";
+                tableroObjetivo.tablero[y][x] = "X";
             }
         }
     }
