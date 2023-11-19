@@ -1,20 +1,22 @@
 package model;
 
 public class Barco {
+    /*Clase Barco: La clase barco contiene los atributos y métodos asociados a cada barco.*/
+
+    /*Atributos de la clase.*/
     private String tipoBarco;
     private int tamanoBarco;
     private String posicionInicio;
     private String posiconFinal;
     private int idTipoBarco;
-
+    /*Método constructor de la clase Barco.*/
     public Barco(String tipoBarco, int tamanoBarco, int idTipoBarco) {
         this.tipoBarco = tipoBarco;
         this.tamanoBarco = tamanoBarco;
         this.idTipoBarco = idTipoBarco;
-//        this.posicionInicio = posicionInicio;
-//        this.posiconFinal = posiconFinal;
     }
 
+    /*Métodos Get y Set de la clase Barco.*/
     public String getTipoBarco() {
         return tipoBarco;
     }

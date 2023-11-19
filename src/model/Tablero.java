@@ -1,8 +1,11 @@
 package model;
-
+/*CLASE TABLERO: La clase tablero contiene un array de 2D de tipo String que corresponde al tablero de un jugador.
+* La clase tablero también ofrece un método para la impresión del tablero siguiendo el formato del juego.*/
 public class Tablero {
-    String [][] tablero;
+    /*Atributos de la clase Tablero.*/
+    private String [][] tablero;
 
+    /*Método constructor de la clase Tablero-*/
     public Tablero() {
         this.tablero = new String[10][10];
         /*Initializing the 2D array of type "char" with empty spaces.*/
@@ -12,18 +15,17 @@ public class Tablero {
             }
         }
     }
+    /*Métodos Get y Set de la clase.*/
+    public String[][] getTablero() {
+        return tablero;
+    }
 
-//    public char[][] getTablero() {
-//        return tablero;
-//    }
-//
-//    public void setTablero(char[][] tablero) {
-//        this.tablero = tablero;
-//    }
+    public void setTablero(String[][] tablero) {
+        this.tablero = tablero;
+    }
 
     public void imprimirTablero(){
-        /*Function to print the 2D array in the given format.
-        * Columns denoted from A to J, Rows denoted from 1 to 10.*/
+        /*Función para imprimir el tablero siguiendo el formato de juego.*/
         System.out.println("+---+---+---+---+---+---+---+---+---+---+---+");
         System.out.println("|   | A | B | C | D | E | F | G | H | I | J |");
         System.out.println("+---+---+---+---+---+---+---+---+---+---+---+");

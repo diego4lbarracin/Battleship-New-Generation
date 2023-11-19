@@ -2,16 +2,16 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/*Clase ADMINISTRADOR: Clase que se encarga de inicializar y crear Jugadores y una competencia, respectivamente.*/
 public class Administrador {
+    /*Atributos de la clase Administrador.*/
     private String alias;
     private String contrasena;
     private Boolean inicioCorrecto;
     private Competencia competencia;
+    /*Método constructor de la clase Administrador.*/
     public Administrador(String alias, String contrasena) {
-
-        /*Exception to handel the creation of an administrador. If the password and the name are not equal
-        * to the ones in the condition, the object "Administrador" won't be created.*/
+        /*Excepción para manejar la correcta creación de un objeto de tipo administrador.*/
         try{
             if(alias.equals("admin") && contrasena.equals("pass")){
                 this.alias = alias;
@@ -24,7 +24,7 @@ public class Administrador {
             e.printStackTrace();
         }
     }
-
+    /*Métodos Get y Set*/
     public Competencia getCompetencia() {
         return competencia;
     }
@@ -41,7 +41,10 @@ public class Administrador {
         this.inicioCorrecto = inicioCorrecto;
     }
 
+    /*Métodos de la Clase.*/
     public void iniciarComptencia(){
+        /*Método iniciarCompetencia: Método que se encarga de la creación de los jugadores, ubicación de los barcos de
+         los mismos, creación de un Computador e inicializar una partida del juego.*/
         ArrayList<Usuario> listaJugadores = new ArrayList<>();
         Computadora computadora = new Computadora("Computadora", "0",
                 "COMPUTADORA", new Tablero(), 0, 10);
