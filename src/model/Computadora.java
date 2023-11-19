@@ -5,26 +5,17 @@ import java.util.Random;
 * de los jugadores reales.*/
 public class Computadora extends Usuario{
     /*Atributos de la clase Computadora*/
-    private Tablero tableroComputadora;
     private int numeroBarcos;
 
     /*Método Constructor de la clase Computadora*/
-    public Computadora(String nombre, String documentoIdentidad, String alias, Tablero tableroComputadora, int numeroIntentos
+    public Computadora(String nombre, String documentoIdentidad, String alias, Tablero tableroOrigen, Tablero tableroObjetivo, int numeroIntentos
     ,int numeroBarcos) {
         /*Método constructor de la superclase*/
-        super(nombre, documentoIdentidad, alias, numeroIntentos);
-        this.tableroComputadora = tableroComputadora;
+        super(nombre, documentoIdentidad, alias, numeroIntentos, tableroOrigen, tableroObjetivo);
         this.numeroBarcos = numeroBarcos;
     }
 
     /*Métodos Get y Set de la clase.*/
-    public Tablero getTableroComputadora() {
-        return tableroComputadora;
-    }
-
-    public void setTableroComputadora(Tablero tableroComputadora) {
-        this.tableroComputadora = tableroComputadora;
-    }
 
     public int getNumeroBarcos() {
         return numeroBarcos;
@@ -32,14 +23,6 @@ public class Computadora extends Usuario{
 
     public void setNumeroBarcos(int numeroBarcos) {
         this.numeroBarcos += numeroBarcos;
-    }
-
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
     }
 
     /*Métodos propios de la clase.*/
@@ -62,41 +45,41 @@ public class Computadora extends Usuario{
             case 1 -> {
                 /*Submarino*/
                 for (int i = 4; i <=8 ; i++) {
-                    tableroComputadora.getTablero()[0][i] = "1";
+                    tableroOrigen.getTablero()[0][i] = "1";
                 }
                 /*Acorazado1*/
                 for (int i = 6; i <=9 ; i++) {
-                    tableroComputadora.getTablero()[2][i] = "2";
+                    tableroOrigen.getTablero()[2][i] = "2";
                 }
                 /*Acorazado2*/
                 for (int i = 0; i <= 3 ; i++) {
-                    tableroComputadora.getTablero()[i][0] = "3";
+                    tableroOrigen.getTablero()[i][0] = "3";
                 }
                 /*Crucero*/
-                tableroComputadora.getTablero()[2][2] = "4";
+                tableroOrigen.getTablero()[2][2] = "4";
                 /*Submarino1*/
                 for (int i = 2; i <= 4 ; i++) {
-                    tableroComputadora.getTablero()[5][i] = "5";
+                    tableroOrigen.getTablero()[5][i] = "5";
                 }
                 /*Submarino 2*/
                 for (int i = 6; i <= 8 ; i++) {
-                    tableroComputadora.getTablero()[5][i] = "6";
+                    tableroOrigen.getTablero()[5][i] = "6";
                 }
                 /*Destructor 1*/
                 for (int i = 2; i <= 3 ; i++) {
-                    tableroComputadora.getTablero()[i][4] = "7";
+                    tableroOrigen.getTablero()[i][4] = "7";
                 }
                 /*Destructor 2*/
                 for (int i = 7; i <= 8 ; i++) {
-                    tableroComputadora.getTablero()[i][1] = "8";
+                    tableroOrigen.getTablero()[i][1] = "8";
                 }
                 /*Destructor 3*/
                 for (int i = 7; i <= 8 ; i++) {
-                    tableroComputadora.getTablero()[i][4] = "9";
+                    tableroOrigen.getTablero()[i][4] = "9";
                 }
                 /*Destructor 3*/
                 for (int i = 7; i <= 8 ; i++) {
-                    tableroComputadora.getTablero()[i][7] = "10";
+                    tableroOrigen.getTablero()[i][7] = "10";
                 }
 
             }

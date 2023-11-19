@@ -5,8 +5,6 @@ import java.util.*;
 * Usuario. Incorpora métodos y atributos especiales de un Jugador Real*/
 public class Jugador extends Usuario{
     /*Atributos de la clase Jugador*/
-    private Tablero tableroOrigen; /*Para registrar los barcos del jugador.*/
-    private Tablero tableroObjetivo; /*Para registrar las posiciones que ataca un jugador.*/
     private ArrayList<Barco> barcosJugador;
     /*Atributo STATIC mapaLetraColumna: Para realizar la conversion de una coordenada
     * ingresada durante las secuencias de juego ("E6") a una coordenada válida de una
@@ -28,12 +26,12 @@ public class Jugador extends Usuario{
     /*Metodo Constructor de la clase Jugador.*/
     public Jugador(String nombre, String documentoIdentidad, String alias, int numeroIntentos, Tablero tableroOrigen, Tablero tableroObjetivo) {
         /*Atributos correspondientes al constructor de la superclase.*/
-        super(nombre, documentoIdentidad, alias, numeroIntentos);
+        super(nombre, documentoIdentidad, alias, numeroIntentos, tableroOrigen, tableroObjetivo);
         this.tableroOrigen = tableroOrigen;
         this.tableroObjetivo = tableroObjetivo;
         this.barcosJugador = new ArrayList<Barco>();
         /*Instanciando y añadiendo barcos a la lista de barcos asociados a un jugador. Son 10
-        * barcos del tipo de barcos ingresados en la lista. El id de cada tipo de barco será usado
+        * barcos del tipo de barcos ingresados en la lista. El ID de cada tipo de barco será usado
         * en las mecanicas de juego para identificar si se destruyo completamente un barco.*/
         barcosJugador.add(new Barco("PORTAVIONES",5, 1));
         barcosJugador.add(new Barco("ACORAZADO",4, 2));
@@ -53,22 +51,6 @@ public class Jugador extends Usuario{
 
     public void setBarcosJugador(ArrayList<Barco> barcosJugador) {
         this.barcosJugador = barcosJugador;
-    }
-
-    public Tablero getTableroOrigen() {
-        return tableroOrigen;
-    }
-
-    public void setTableroOrigen(Tablero tableroOrigen) {
-        this.tableroOrigen = tableroOrigen;
-    }
-
-    public Tablero getTableroObjetivo() {
-        return tableroObjetivo;
-    }
-
-    public void setTableroObjetivo(Tablero tableroObjetivo) {
-        this.tableroObjetivo = tableroObjetivo;
     }
 
     /*Métodos de la clase.*/

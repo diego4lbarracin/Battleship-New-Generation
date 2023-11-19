@@ -136,19 +136,19 @@ public class Competencia {
         int x= Jugador.mapaLetraColumna.get(coordenadaDeAtaque.substring(0, 1));
         int y= Integer.parseInt(coordenadaDeAtaque.substring(1)) - 1;
 
-        String elemento = computadora.getTableroComputadora().getTablero()[y][x];
+        String elemento = computadora.getTableroOrigen().getTablero()[y][x];
 
-        if (!Objects.equals(computadora.getTableroComputadora().getTablero()[y][x], "_")){
-            if (computadora.getTableroComputadora().getTablero()[y][x].equals("*") || computadora.getTableroComputadora().getTablero()[y][x].equals("X")){
+        if (!Objects.equals(computadora.getTableroOrigen().getTablero()[y][x], "_")){
+            if (computadora.getTableroOrigen().getTablero()[y][x].equals("*") || computadora.getTableroOrigen().getTablero()[y][x].equals("X")){
                 System.out.println("Esta coordenada ya fue atacada antes.");
                 mensaje = "FRACASADO";
                 jActual.setPuntuacion(-1);
             }else{
-                computadora.getTableroComputadora().getTablero()[y][x]= "*";
+                computadora.getTableroOrigen().getTablero()[y][x]= "*";
 
                 for (int i = 0; i < 10; i++) {
                     for (int j = 0; j < 10; j++) {
-                        if (computadora.getTableroComputadora().getTablero()[i][j].equals(elemento)){
+                        if (computadora.getTableroOrigen().getTablero()[i][j].equals(elemento)){
                             contador+=1;
                         }
                     }
@@ -162,7 +162,7 @@ public class Competencia {
                     jActual.setPuntuacion(2);
                 }
             }
-        } else if (computadora.getTableroComputadora().getTablero()[y][x].equals("_")) {
+        } else if (computadora.getTableroOrigen().getTablero()[y][x].equals("_")) {
             mensaje = "AL AGUA";
             jActual.setPuntuacion(-1);
         }

@@ -47,7 +47,7 @@ public class Administrador {
          los mismos, creación de un Computador e inicializar una partida del juego.*/
         ArrayList<Usuario> listaJugadores = new ArrayList<>();
         Computadora computadora = new Computadora("Computadora", "0",
-                "COMPUTADORA", new Tablero(), 0, 10);
+                "COMPUTADORA", new Tablero(), new Tablero(), 0, 10);
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese el numero de jugadores para la partida -> ");

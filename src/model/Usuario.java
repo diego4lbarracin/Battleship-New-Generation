@@ -9,16 +9,37 @@ public abstract class Usuario{
     protected String alias;
     protected int numeroIntentos;
     protected int puntuacion;
+    protected Tablero tableroOrigen; /*Para registrar los barcos del jugador.*/
+    protected Tablero tableroObjetivo; /*Para registrar las posiciones que ataca un jugador.*/
     /*Método constructor para la clase Usuario.*/
-    public Usuario(String nombre, String documentoIdentidad, String alias, int numeroIntentos) {
+    public Usuario(String nombre, String documentoIdentidad, String alias, int numeroIntentos, Tablero tableroOrigen, Tablero tableroObjetivo) {
         this.nombre = nombre;
         this.documentoIdentidad = documentoIdentidad;
         this.alias = alias;
         this.numeroIntentos = numeroIntentos;
+        this.tableroOrigen = tableroOrigen;
+        this.tableroObjetivo = tableroObjetivo;
     }
 
     /*Métodos Get y Set para modificar y obtener la información de cada atributo de un
     * objeto de la clase.*/
+
+    public Tablero getTableroOrigen() {
+        return tableroOrigen;
+    }
+
+    public void setTableroOrigen(Tablero tableroOrigen) {
+        this.tableroOrigen = tableroOrigen;
+    }
+
+    public Tablero getTableroObjetivo() {
+        return tableroObjetivo;
+    }
+
+    public void setTableroObjetivo(Tablero tableroObjetivo) {
+        this.tableroObjetivo = tableroObjetivo;
+    }
+
     public int getPuntuacion() {
         return puntuacion;
     }
@@ -63,4 +84,5 @@ public abstract class Usuario{
     public void setAlias(String alias) {
         this.alias = alias;
     }
+
 }
