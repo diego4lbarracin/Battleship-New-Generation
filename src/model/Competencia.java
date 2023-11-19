@@ -171,7 +171,7 @@ public class Competencia {
 
         return mensaje;
     }
-    public void ReporteCompetencia(){
+    public void generarReporteCompetencia(){
         /*Método ReporteCompetencia: Método que se encarga de organizar la lista de resultados en orden descendente
         * usando como criterio la puntuación de cada participante y luego imprime los resultados.*/
         if(!enCurso){

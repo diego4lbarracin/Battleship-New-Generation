@@ -49,7 +49,7 @@ public class GUITexto {
                         System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
                         administradorPartida.getCompetencia().secuenciaDeTurnosDeJuego();
                         System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
-                        administradorPartida.getCompetencia().ReporteCompetencia();
+                        administradorPartida.getCompetencia().generarReporteCompetencia();
                         System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
                     }
                     case 2 -> {

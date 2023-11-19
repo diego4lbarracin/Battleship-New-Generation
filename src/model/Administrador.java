@@ -45,10 +45,14 @@ public class Administrador {
     public void iniciarComptencia(){
         /*Método iniciarCompetencia: Método que se encarga de la creación de los jugadores, ubicación de los barcos de
          los mismos, creación de un Computador e inicializar una partida del juego.*/
-        ArrayList<Usuario> listaJugadores = new ArrayList<>();
+        ArrayList<Usuario> jugadores = crearJuagadores();
         Computadora computadora = new Computadora("Computadora", "0",
                 "COMPUTADORA", new Tablero(), new Tablero(), 0, 10);
 
+        competencia = new Competencia(computadora, jugadores);
+    }
+    public ArrayList<Usuario> crearJuagadores(){
+        ArrayList<Usuario> listaJugadores = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese el numero de jugadores para la partida -> ");
         int numeroJugadores = sc.nextInt();
@@ -71,8 +75,7 @@ public class Administrador {
             j.ubicarBarcosJugador();
             listaJugadores.add(j);
         }
-        competencia = new Competencia(computadora, listaJugadores);
+        return listaJugadores;
     }
-
 
 }
