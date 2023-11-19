@@ -151,7 +151,6 @@ public class Jugador extends Usuario{
                 /*FOR LOOPS que se encargan de iterar sobre las coordenadas ingresadas por el jugador. Con
                 * estas coordenadas, se mueve dentro del tablero de juego e inserta el tipo de barco correspondientes
                 * en las posiciones indicadas.*/
-
                 /*Manejo para la inserción de posiciones como G3-G1 o I1-E1*/
                 if( (yFinal > yInicial || yFinal == yInicial) && (xFinal > xInicial || xFinal == xInicial) ){
                     for (int j = yInicial; j <= yFinal; j++) {
@@ -169,6 +168,7 @@ public class Jugador extends Usuario{
                                 System.out.println("Siga las instrucciones e inserte su barco nuevamente.");
                                 System.out.println("-----------------------------------------------------");
                                 registroBarcoExitoso = false;
+                                break;
                             }
                         }
                     }
@@ -194,9 +194,10 @@ public class Jugador extends Usuario{
                     }
                 }
 
-                /*Se imprime el tablero del jugador, independientemente de que si el registroBarcoExitoso = true o
-                * registroBarcoExitoso = false*/
-                tableroOrigen.imprimirTablero();
+                /*Se imprime el tablero del jugador si el registroBarcoExitoso = true*/
+                if(registroBarcoExitoso){
+                    tableroOrigen.imprimirTablero();
+                }
             /*La anterior secuencia se va a repetir mientras el registro de un barco no sea exitoso.*/
             }while (!registroBarcoExitoso);
             System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
