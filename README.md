@@ -1,4 +1,4 @@
-![LOGO]()
+![LOGO](https://github.com/diego4lbarracin/Battleship-New-Generation/blob/main/imagesMD/LOGOBattleshipNG.png?raw=true)
 # Battleship-New-Generation
 Battleship New Generation is an implementation of the world-famous game “Battleship” in Java using a console-based
 graphical user interface. I applied all the concepts that I learned during my object-oriented programming class in
@@ -9,7 +9,6 @@ my second semester of my career.
   ![logInFeature](https://github.com/diego4lbarracin/Battleship-New-Generation/blob/main/imagesMD/LOGIn.gif?raw=true)  
 - Create a Championship: From 1 to N players can try to win the battle against the computer. It is important to highlight
 that only an administrator can create a championship.
-  ![createChampionship](https://github.com/diego4lbarracin/Battleship-New-Generation/blob/main/imagesMD/CGAme.gif?raw=true)
 - Place the Ships on the Board: Each player can place its 10 ships in random locations on its own board as long as the given coordinates
 are correct based on the size of each of the 10 ships, and those coordinates do not correspond to a position where another ship had been 
 placed already.
